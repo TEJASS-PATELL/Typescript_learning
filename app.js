@@ -1,6 +1,15 @@
 "use strict";
 //*  What is TypeScript?
 // TypeScript ek superset hai JavaScript ka – iska matlab hai ki TypeScript mein JavaScript ka har code chalega, lekin TypeScript mein extra features bhi milte hain — jaise Type Safety, Interfaces, Classes, Access Modifiers, etc.
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 //* 🔥 Why TypeScript? (Real-Life Analogy)
 // JavaScript ko samjho jaise ek whiteboard marker – aap kuch bhi likh sakte ho, galat bhi sahi bhi, koi nahi rokega. Lekin agar aap galti se important data hata doge, toh mushkil ho sakti hai.
@@ -23,18 +32,18 @@ var b = 20;
 //* Prefer using let or const in modern TypeScript or JavaScript.
 //*-------------------------------------
 //* Array
-let arr = [1, 2, 3, 4, "Hello"];
+var arr = [1, 2, 3, 4, "Hello"];
 //* Mixed array (number + string) -> TypeScript ise (number | string)[] maane ga.
 //* Interview Point: Always define type explicitly for better code readability and error checking.
 // let arr5: number[] = [1, 2, 3, 4, "Hello"];
 //* ❌ Error: string "Hello" allowed nahi hai kyunki array ka type number[] hai.
-let arr1 = [1, 2, 3, 4, { name: "Tejas" }, { age: 22 }];
+var arr1 = [1, 2, 3, 4, { name: "Tejas" }, { age: 22 }];
 //* Array with number and object types. Iska inferred type: (number | {name: string} | {age: number})[].
 // [], {}, () => Reference types (Array, Object, Function)
 //? Yeh reference types heap memory me store hote hain, aur variables me unka reference (address) hota hai, actual data nahi.
 //*-------------------------------------
 //* Tuples -> Fixed length & fixed type array
-let arr3 = [10, "hello", false];
+var arr3 = [10, "hello", false];
 //* Interview Tip: Tuple ka use tab karo jab tumhe exact fixed order chahiye ho types ka.
 //*-------------------------------------
 //* Enums -> Set of named constants
@@ -53,17 +62,17 @@ UserRole.ADMIN;
 //* Interview Point: Enums strongly typed constants ke liye use hote hain (Role-based access control, status codes).
 //*-------------------------------------
 //* Primitive Types
-let d;
+var d;
 d = 25;
 // d = "hello";  //❌ Error
-let v;
+var v;
 v = "learn";
 // v = 45; //❌ Error
-let f; // *Implicit type: any
+var f; // *Implicit type: any
 f = 99;
 f = "system";
 f.toUpperCase(); // ✅ Because latest value is string
-let q;
+var q;
 q = 45;
 q = "anyone";
 // q.toUpperCase(); // ❌ Error: unknown ko pehle type check karna padta hai
@@ -73,27 +82,21 @@ if (typeof q === "string") {
 //* unknown type -> safer alternative of 'any'. Use karo jab exact type pata nahi ho.
 //*-------------------------------------
 //* null & undefined types
-let c;
-let w = null;
-let y;
+var c;
+var w = null;
+var y;
 y = "king";
 y = null;
 // y = 10; // ❌ Error
-let x;
-//*-------------------------------------
-//* Never -> Function jo kabhi return nahi karta (infinite loop, error throw)
-function abcd() {
-    // while (true) { }  // Infinite loop
-    // throw new Error("Never returns");
-}
+var x;
 function find(obj) { }
 find({ name: "tejas", age: 22, email: "abc2@gmail.com", gender: "male" });
 function findStudent(object) {
     console.log(object.Collage_name);
 }
-let xyz;
+var xyz;
 xyz = 90;
-let system;
+var system;
 system = 1.45;
 system = "hello";
 system = false;
@@ -102,50 +105,55 @@ function abcde(obj) { }
 abcde(40);
 //*-------------------------------------
 //* Classes & Objects
-class Device {
-    constructor() {
+var Device = /** @class */ (function () {
+    function Device() {
         this.name = "lg";
         this.price = 12000;
         this.category = "Digital";
     }
-}
-let d1 = new Device();
-let d2 = new Device();
+    return Device;
+}());
+var d1 = new Device();
+var d2 = new Device();
 //* Interview Note: TypeScript classes me default values set kar sakte ho directly.
 //* Constructor with parameter properties
-class Bottle {
-    constructor(name, price) {
+var Bottle = /** @class */ (function () {
+    function Bottle(name, price) {
         this.name = name;
         this.price = price;
     }
-}
-let ob1 = new Bottle("Maths", 800);
+    return Bottle;
+}());
+var ob1 = new Bottle("Maths", 800);
 console.log(ob1);
 //* Interview Tip: public/private likhne se constructor ke andar hi properties ban jaati hain.
 //* Parameterized class with default values
-class Music {
-    constructor(name, writter, thumbnail = "thumbnail.jpg", length) {
+var Music = /** @class */ (function () {
+    function Music(name, writter, thumbnail, length) {
+        if (thumbnail === void 0) { thumbnail = "thumbnail.jpg"; }
         this.name = name;
         this.writter = writter;
         this.thumbnail = thumbnail;
         this.length = length;
         this.thumbnail = "thumbnail.png"; // override default value
     }
-}
-let ob2 = new Music("Tera Ghata", "Gajendra Verma", "", 2000);
+    return Music;
+}());
+var ob2 = new Music("Tera Ghata", "Gajendra Verma", "", 2000);
 console.log(ob2);
 //*-------------------------------------
 //* this keyword: current object ko refer karta hai. Important in OOPs context
 //* Access Modifiers -> public, private, protected
-class User {
-    constructor(name) {
+var User = /** @class */ (function () {
+    function User(name) {
         this.name = name;
     }
-    changename() {
+    User.prototype.changename = function () {
         // this.name = "hello"; // ❌ readonly property change nahi hoti
-    }
-}
-let s1 = new User("Tejas");
+    };
+    return User;
+}());
+var s1 = new User("Tejas");
 s1.changename();
 console.log(s1);
 //* readonly -> ek bar set hone ke baad change nahi ho sakta.
@@ -161,11 +169,11 @@ function identity(arg) {
 identity(5);
 identity("hello");
 //! 2. **Type Assertion** => Developer ko pata hai ki value ka type kya hai
-let someValue = "I am string";
-let strLength = someValue.length;
-let obj = { name: "X", age: 30 };
+var someValue = "I am string";
+var strLength = someValue.length;
+var obj = { name: "X", age: 30 };
 //! 4. **Type Inference** => TypeScript khud se type detect karta hai
-let num = 5; // inferred as number
+var num = 5; // inferred as number
 //! 6. **Difference: Interface vs Type**
 // - Interface extend kar sakta hai aur merge ho sakta hai
 // - Type zyada flexible hai, tuples, unions, intersection support karta hai
@@ -182,38 +190,47 @@ function printId(id) {
 }
 //* Parameter Properties-
 //* Getter & Setter-
-class Users {
-    constructor(_name, age) {
+var Users = /** @class */ (function () {
+    function Users(_name, age) {
         this._name = _name;
         this.age = age;
     }
-    get name() {
-        return this._name;
-    }
-    set name(someValue) {
-        this._name = someValue;
-    }
-}
-let S1 = new Users("tejassss", 21);
+    Object.defineProperty(Users.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        set: function (someValue) {
+            this._name = someValue;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Users;
+}());
+var S1 = new Users("tejassss", 21);
 console.log(S1.name);
 S1.name = "tejass patell";
 console.log(S1.name);
 //* Static Values-
-class Anything {
-    static getNumber() {
-        return Math.random();
+var Anything = /** @class */ (function () {
+    function Anything() {
     }
-}
-Anything.namee = "TejasPateL";
+    Anything.getNumber = function () {
+        return Math.random();
+    };
+    Anything.namee = "TejasPateL";
+    return Anything;
+}());
 console.log(Anything.namee);
 console.log(Anything.getNumber());
 //* Abstract Classes-
-class Payment {
-    constructor(amount, date) {
+var Payment = /** @class */ (function () {
+    function Payment(amount, date) {
         this.amount = amount;
         this.date = date;
     }
-}
+    return Payment;
+}());
 // class phonePay extends Payment{
 //     constructor(public sendername : string) { }
 // }
@@ -225,18 +242,23 @@ function Student(name, age, gender) {
 }
 Student("PateL", 22, "male");
 Student("gaurav", 23);
-function Student2(name, age, gender = "I am not want to disclosed") {
+function Student2(name, age, gender) {
+    if (gender === void 0) { gender = "I am not want to disclosed"; }
     console.log(name, age, gender);
 }
 //* Rest parameters-
 //? Rest / Spred-
-function sum(...arr) {
+function sum() {
+    var arr = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        arr[_i] = arguments[_i];
+    }
     console.log(arr);
     console.log(arr[6]);
 }
 sum(1, 2, 3, 4, 5, 6, 7, 8, 9);
-let arr2 = [1, 2, 3, 4, 5];
-let arr6 = [...arr2, 9, 80];
+var arr2 = [1, 2, 3, 4, 5];
+var arr6 = __spreadArray(__spreadArray([], arr2, true), [9, 80], false);
 console.log(arr6);
 //* Function Overloading
 //? Generics-
@@ -248,13 +270,14 @@ logger(true);
 logger(20);
 //* Generics interface-
 //* Generics classes-
-class Generics {
-    constructor(key) {
+var Generics = /** @class */ (function () {
+    function Generics(key) {
         this.key = key;
     }
-}
-let G1 = new Generics("hello this is generic");
-let G2 = new Generics(4 + 5);
+    return Generics;
+}());
+var G1 = new Generics("hello this is generic");
+var G2 = new Generics(4 + 5);
 console.log(G1);
 console.log(G2);
 // ! Important-
@@ -272,5 +295,13 @@ function AAA(a, b) {
 }
 ABZ("Hello", "How are you");
 //* Modules-
-const payment_1 = require("./payment");
+var payment_1 = require("./payment");
 (0, payment_1.payment)(89);
+//* Type Assertion- 
+var t = 12;
+t.toLocaleUpperCase;
+t.toLocaleLowerCase;
+var r = Number("45");
+console.log(r);
+//* Types Gaurds-
+// typeof, instanceof
