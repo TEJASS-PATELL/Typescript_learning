@@ -293,8 +293,66 @@ class Users{
     }
 }
 
+let S1 = new Users("tejassss", 21);
+console.log(S1.name);
+S1.name = "tejass patell";
+console.log(S1.name);
+
+//* Static Values-
+
+class Anything{
+    static namee:string = "TejasPateL";
+
+    static getNumber(){
+        return Math.random();
+    }
+}
+
+console.log(Anything.namee);
+console.log(Anything.getNumber());
+
+//* Abstract Classes-
+
+class Payment{
+    constructor(protected amount:number, protected date: number){ }
+
+}
+
+// class phonePay extends Payment{
+//     constructor(public sendername : string) { }
+// }
+
+//* Functions-
 
 
+//* types-
+
+
+//* Optional & default parameters-
+function Student(name : string, age: number, gender?: string){ 
+    console.log(name, age, gender);
+}
+Student("PateL", 22, "male");
+Student("gaurav", 23);
+
+function Student2(name : string, age: number, gender: string = "I am not want to disclosed"){ 
+    console.log(name, age, gender);
+}
+
+//* Rest parameters-
+//? Rest / Spred-
+
+function sum(...arr : number[]){
+    console.log(arr);
+    console.log(arr[6]);
+}
+
+sum(1,2,3,4,5,6,7,8,9);
+
+let arr2 = [1,2,3,4,5];
+let arr6 = [...arr2, 9,80];
+
+console.log(arr6);
 
 
 
