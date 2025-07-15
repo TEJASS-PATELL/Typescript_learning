@@ -103,10 +103,10 @@ let x: undefined;
 
 //*-------------------------------------
 //* Never -> Function jo kabhi return nahi karta (infinite loop, error throw)
-function abcd(): never {
-    // while (true) { }  // Infinite loop
-    // throw new Error("Never returns");
-}
+// function abcd(): never {
+//     while (true) { }  // Infinite loop
+//     throw new Error("Never returns");
+// }
 
 //* Interview Point: never ka use edge cases me hota hai - error handling, exhaustive checks.
 
