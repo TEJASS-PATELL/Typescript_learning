@@ -392,7 +392,7 @@ console.log(G2);
 
 
 // ! Important-
-function ABZ<T>(a : T, b : T): T {
+function ABZ<T>(a : T, b : T): string {
     return "hi";
 }
 
