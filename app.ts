@@ -355,6 +355,80 @@ let arr6 = [...arr2, 9,80];
 console.log(arr6);
 
 
+//* Function Overloading
+
+
+
+
+
+//? Generics-
+
+function logger<T>(arg: T){ 
+    console.log(arg);
+}
+
+logger<string>("Batmannnn");
+logger(true);
+logger<number>(20);
+
+
+//* Generics interface-
+
+
+
+
+//* Generics classes-
+
+class Generics<T>{
+    constructor(public key: T){
+
+    }
+}
+
+let G1 = new Generics("hello this is generic");
+let G2 = new Generics<number>(4 + 5);
+console.log(G1);
+console.log(G2);
+
+
+// ! Important-
+function ABZ<T>(a : T, b : T): T {
+    return "hi";
+}
+
+function ABB<T>(a : T, b : T): T {
+    return a;
+}
+
+function ABC<T>(a : T, b : T): T {
+    return <T>"hi";
+}
+
+function AAA<T>(a : T, b : T): T {
+    return "hi" as T;
+}
+
+ABZ<string>("Hello", "How are you");
+
+
+//* Modules-
+import { payment } from "./payment";
+payment(89);
+
+//* Type Assertion- 
+let t: any = 12;
+(t as string).toLocaleUpperCase;
+(<string>t).toLocaleLowerCase;
+
+
+let r = Number("45");
+console.log(r);
+
+//* Types Gaurds-
+// typeof, instanceof
+
+
+
 
 
 
