@@ -67,10 +67,19 @@ interface Collage extends USER {
 }
 
 function find(obj: USER) {
-    console.log("This is : ", obj.name, "email is : ", obj.email);
+    console.log("This is : ", obj.name, "email is : ", obj.email, "gender is : ", obj.gender);
 }
 
-find({ name: "tejas", age: 22, email: "abc2@gmail.com", gender: "male" });
+const user1: Collage = {
+    name: "xyz",
+    age: 21,
+    email: "xyz@gmail.com",
+    gender: "male",
+    COLLAGE: "none"
+}
+
+// find({ name: "tejas", age: 22, email: "abc2@gmail.com", gender: "male" });
+find(user1);
 
 //* null & undefined types
 let c: null;
@@ -194,5 +203,59 @@ const newStudent = new Learning("Tejas Patel", 72, 21, "CSE", 7);
 newStudent.ExamMarks();
 newStudent.Calculate();
 
+// class Users {
+//     constructor(public readonly mname: string) { 
+//         console.log(mname);
+//     }
 
+//     changename() {      //* Methods
+//         // this.mname = "hello"; // ❌ readonly property change nahi hoti
+//     }
+// }
+
+// let s1 = new Users("Tejas");
+// s1.changename();
+// console.log(s1);
+
+//* Generics-
+function generics<T>(value : T) : T{
+    return value;
+}
+
+console.log(generics<string>("hello generics"));
+console.log(generics<number>(25));
+
+//* utility-
+interface Student {
+  name: string;
+  age: number;
+}
+
+const s1: Partial<Student> = {
+  name: "Tejas" // age optional ho gaya
+};
+
+const s2: Required<Student> = {
+  name: "Tejas",
+  age: 21  // ab ye dena compulsory hai if optional then also
+};
+
+console.log(s1.name, s2.age, s2.name);
+
+const s3: Readonly<Student> = { name: "Tejas", age: 21 };
+// s3.age = 22; // ❌ Error: cannot assign to 'age'
+
+interface Students {
+  name: string;
+  age: number;
+  email: string;
+}
+
+const s4: Pick<Students, "name" | "email"> = {                //* pick some properies
+  name: "Tejas",
+  email: "tejas@example.com"
+};
+
+console.log(s4.email);
+// console.log(s4.age);  not accessable
 

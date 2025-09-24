@@ -175,6 +175,7 @@ class Device {
 }
 
 let d1 = new Device();
+console.log(d1.name);
 let d2 = new Device();
 
 //* Interview Note: TypeScript classes me default values set kar sakte ho directly.
@@ -191,12 +192,7 @@ console.log(ob1);
 
 //* Parameterized class with default values
 class Music {
-    constructor(
-        public name: string,
-        public writter: string,
-        public thumbnail: string = "thumbnail.jpg",
-        public length: number
-    ) {
+    constructor( public name: string, public writter: string, public thumbnail: string = "thumbnail.jpg", public length: number){
         this.thumbnail = "thumbnail.png";  // override default value
     }
 }
