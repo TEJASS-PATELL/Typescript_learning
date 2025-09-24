@@ -1,5 +1,5 @@
 //*  What is TypeScript?
-// TypeScript ek superset hai JavaScript ka – iska matlab hai ki TypeScript mein JavaScript ka har code chalega, lekin TypeScript mein extra features bhi milte hain — jaise Type Safety, Interfaces, Classes, Access Modifiers, etc.
+//? TypeScript ek superset hai JavaScript ka – iska matlab hai ki TypeScript mein JavaScript ka har code chalega, lekin TypeScript mein extra features bhi milte hain — jaise Type Safety, Interfaces, Classes, Access Modifiers, etc.
 
 //* 🔥 Why TypeScript? (Real-Life Analogy)
 // JavaScript ko samjho jaise ek whiteboard marker – aap kuch bhi likh sakte ho, galat bhi sahi bhi, koi nahi rokega. Lekin agar aap galti se important data hata doge, toh mushkil ho sakti hai.
@@ -7,19 +7,18 @@
 // TypeScript ek smart marker jaisa hai jo galti hone se pehle hi warning de deta hai — “Bhai yeh variable number hona chahiye, tum string de rahe ho!”
 
 //* ✅ Example:
-
 // let age: number = 25;
 // age = "Tejas";  // ❌ Error: 'string' is not assignable to 'number'
 // Yahan TypeScript compile time pe hi bata dega ki yeh galat hai. JavaScript runtime pe error dega — tab tak late ho chuka hoga.
 
 //* 💥 Difference Between TypeScript and JavaScript (Table for Interview)
-// Feature	JavaScript	TypeScript
-// Type Checking	❌ No type checking	✅ Compile-time type checking
-// Error Detection	❌ Run-time errors	✅ Compile-time errors
-// Code Scalability	❌ Difficult in large apps	✅ Great for large scale apps
-// Interfaces & Types	❌ Not supported	✅ Fully supported
-// Modern Features	✅ Limited ES6+	✅ All ES6+ + Extra features
-// Learning Curve	✅ Easy	🔶 Slightly steeper
+// Feature	                      JavaScript	                          TypeScript
+// Type Checking	         ❌ No type checking	            ✅ Compile-time type checking
+// Error Detection	         ❌ Run-time errors                	✅ Compile-time errors
+// Code Scalability	         ❌ Difficult in large apps	       ✅ Great for large scale apps
+// Interfaces & Types	     ❌ Not supported	                    ✅ Fully supported
+// Modern Features          ✅ Limited ES6+	                  ✅ All ES6+ + Extra features
+// Learning Curve	        ✅ Easy	                              🔶 Slightly steeper
 
 
 var a = 10;
@@ -93,7 +92,7 @@ if (typeof q === "string") {
 //* null & undefined types
 let c: null;
 let w: null = null;
-
+console.log(w)
 let y: string | null;
 y = "king";
 y = null;
@@ -119,7 +118,9 @@ interface USER {
     gender?: string,  // optional
 }
 
-function find(obj: USER) { }
+function find(obj: USER) { 
+    console.log(User.name)
+}
 
 find({ name: "tejas", age: 22, email: "abc2@gmail.com", gender: "male" });
 
@@ -140,6 +141,7 @@ interface Collage extends Student {
 
 function findStudent(object: Collage) {
     console.log(object.Collage_name);
+    console.log(object.age);
 }
 
 //* Interview Note: Interfaces merge ho sakti hain. Same name hone par automatic merge hoti hai.
