@@ -152,7 +152,7 @@ class Compamy implements Car {
         this.speed = speed;
     }
 
-    Carspeed() {
+    Carspeed(): any {
         console.log(this.name, "Speed is: ", this.speed);
     }
 }
@@ -258,4 +258,46 @@ const s4: Pick<Students, "name" | "email"> = {                //* pick some prop
 
 console.log(s4.email);
 // console.log(s4.age);  not accessable
+
+//* Type assertion-  Type assertion ka matlab hai → tum compiler ko forcefully bata rahe ho ki “Trust me, mujhe pata hai ye value kis type ki hai”. Ye basically TypeScript ko hint deta hai ki ek value ko kis type ke tarah treat karna hai.
+
+let value: any = "Hello TypeScript";
+let strLength: number = (value as string).length;
+console.log(strLength);
+
+
+//* readonly with object - Jab tum kisi object property ko readonly karte ho → wo reassign/update nahi kiya ja sakta. Sirf read kiya ja sakta hai.
+
+interface Studentt {
+  readonly id: number;
+  name: string;
+}
+
+const s11: Studentt = { id: 101, name: "Tejas" };
+
+s11.name = "Patel";   // ✅ allowed
+// s11.id = 202;         // ❌ Error: Cannot assign to 'id' because it is a read-only property
+
+//* readonly with Array - Agar array readonly declare kiya → tum uske elements ko replace nahi kar sakte, push/pop nahi kar sakte. Lekin tum read (access) kar sakte ho.
+
+// const arr: number[] = [1,2,3,4,5];
+const arr: readonly number[] = [1,2,3,4,5];
+// console.log(arr.push(8)); 
+console.log(arr);
+
+//* type vs interface-
+type Studenttt = {
+  name: string;
+  age: number;
+};
+
+type College = Studenttt & { collegeName: string };
+
+const s22: College = {
+  name: "Tejas",
+  age: 21,
+  collegeName: "XYZ University"
+};
+
+console.log(s22);
 
