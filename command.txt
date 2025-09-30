@@ -1,0 +1,5 @@
+How to debug a TypeScript file?
+tsc --sourcemap script.ts
+
+How to combine multiple TypeScript files and convert them into single JavaScript file?
+tsc --outfile combined.js script1.ts script2.ts script3.ts

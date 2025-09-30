@@ -301,3 +301,61 @@ const s22: College = {
 
 console.log(s22);
 
+//* Generic interface- used for reusability
+interface drink<T> {
+    price: T
+    brand: T
+}
+
+const newDrink: drink<String | number> = {brand : "Coca Cola", price : 20};
+console.log(newDrink);
+
+//* aync/await-  (Async function ka return hamesha Promise hota hai.)
+async function fetchData(): Promise<string> {
+  return "data";
+}
+
+console.log(fetchData());
+
+//* object declaration-
+// const myObj: { name: string, desc: string, est?: number } = {
+//     name: "GeeksforGeeks",
+//     desc: "A Computer Science Portal",
+// };
+
+// myObj.est = 89;
+// console.log(myObj);
+
+//* arrow function-
+const typedArrowFunc = (org_name: string, desc: string): string => {
+    let company: string = `Organization: ${org_name}, Description: ${desc}`;
+    return company;
+}
+console.log(typedArrowFunc("GeeksforGeeks", "A Computer Science Portal"));
+// Prints:
+
+//* enums- enum ka matlab hota hai → set of named constants.
+//* Matlab agar tumhare pass limited fixed values hain jo repeat hone wali hain, unko hardcode karne ke bajaye tum enum bana sakte ho.
+//* Ye tumhare code ko clean aur maintainable banata hai.
+
+enum direction{
+    north, //0
+    south, //1
+    east,  //2
+    west  //3
+}
+
+let move: direction = direction.east;
+console.log(move);
+//! By default numbers assign hote hain 0 se start hoke.
+
+enum Roles {
+  Admin = "ADMIN",
+  User = "USER",
+  Guest = "GUEST"
+}
+
+let currentRole: Roles = Roles.Admin;
+console.log(currentRole); // 👉 "ADMIN"
+//! Jab tumhe human-readable value chahiye (jaise database me ya API me bhejne ke liye), tab string enums use karte hain.
+
