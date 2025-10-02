@@ -2,3 +2,33 @@ label{
     font-size: 24px;
     margin-left: 10px;
 }
+
+.listclass {
+  position: relative;
+  width: 650px;   /* input ke width ke hisaab se adjust kar */
+}
+
+#names {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 500px;   /* scroll enable karne ke liye */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-top: none;    /* input ke niche directly lagne ke liye */
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: absolute;
+  width: 100%;
+  z-index: 1000;       /* overlap ke liye */
+}
+
+#names li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#names li:hover {
+  background: #f0f0f0;
+}

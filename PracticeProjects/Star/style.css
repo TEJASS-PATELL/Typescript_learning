@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+    margin: 0;    
+}
+
+.maindiv {
+    display: flex;
+    align-items: center;      
+    justify-content: center;   
+    flex-direction: column;
+    height: 100vh;             
+}
+
+#seconddiv {
+    display: flex;
+    align-items: center;      
+    justify-content: center;   
+    gap: 10px;
+}
+
+.star{
+    cursor: pointer;
+    font-size: 120px;
+    transition: color 0.4s;
+}
+
+p{
+    font-size: 25px;
+}
