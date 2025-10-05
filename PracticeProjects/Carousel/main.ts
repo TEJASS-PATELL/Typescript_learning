@@ -3,23 +3,37 @@ const imgs = document.querySelector(".img") as HTMLImageElement;
 const nextimg = document.querySelector(".nextimg") as HTMLButtonElement;
 const previmg = document.querySelector(".previmg") as HTMLButtonElement;
 let timers = 0;
-
-const img = [ "images/b.jpg", "images/c.jpg", "images/d.jpg", "images/e.jpg"]
+let intervals: any;
+const img = ["images/a.jpg", "images/b.jpg", "images/c.jpg", "images/d.jpg", "images/e.jpg"];
+imgs.src = img[timers];
 
 nextimg.addEventListener("click", () => {
-    timers = (timers+1) % img.length;
-    imgs.src = img[timers];
+  clearInterval(intervals);
+  timers = (timers + 1) % img.length;
+  imgs.src = img[timers];
+  createimg();
 })
 
 previmg.addEventListener("click", () => {
-    timers = (timers - 1 + img.length) % img.length;
-    imgs.src = img[timers];
+  clearInterval(intervals);
+  timers = (timers - 1 + img.length) % img.length;
+  imgs.src = img[timers];
+  createimg();
 })
 
+imgs.addEventListener("mouseover", () => {
+  clearInterval(intervals);
+})
+
+imgs.addEventListener("mouseout", () => {
+  createimg();
+})
+
+//? % arr.length ensures index hamesha 0 to length-1 me rahe
 function createimg() {
-  setInterval(() => {
-      timers = (timers + 1) % img.length;
-      imgs.src = img[timers];
+  intervals = setInterval(() => {
+    timers = (timers + 1) % img.length;
+    imgs.src = img[timers];
   }, 2000);
 }
 
