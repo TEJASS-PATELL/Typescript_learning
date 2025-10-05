@@ -1,7 +1,6 @@
 const seconddiv = document.getElementById("seconddiv");
 const maindiv = document.querySelector(".maindiv");
 const text = document.querySelector(".text");
-
 const total_star = 5;
 let select_rating = 0;
 

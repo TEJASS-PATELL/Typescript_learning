@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    gap: 20px; 
+}
+
+.maindivimg {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 70%;
+    height: 80%;
+    transition: 0.5s all ease-in-out;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+button {
+    font-size: 3rem;
+    background: black;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 20px;
+    width: 100px;
+    height: 70px;
+    cursor: pointer;
+}
