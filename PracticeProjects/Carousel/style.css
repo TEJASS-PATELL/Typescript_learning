@@ -21,6 +21,7 @@
 
 img {
     width: 70%;
+    border: 5px solid black;
     height: 80%;
     transition: 0.5s all ease-in-out;
     border-radius: 40px;
