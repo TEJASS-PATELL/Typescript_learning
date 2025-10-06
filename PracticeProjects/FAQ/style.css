@@ -1,0 +1,26 @@
+* {
+    font-size: 25px;
+}
+
+.answer {
+    margin-top: 10px;
+    overflow: hidden;  /* extra content hide  hides content also not just element*/
+    max-height: 0;
+    transition: all 0.3s ease;
+}
+
+.answer.visible {
+    max-height: 500px;
+}
+
+.faqdiv {
+    margin-top: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.question {
+    font-weight: bold;
+    cursor: pointer;
+}
